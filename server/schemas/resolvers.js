@@ -1,7 +1,9 @@
+const { User, Collection, Item, Comment } = require('../models');
+
 const resolvers = {
    Query: {
-      helloWorld: () => {
-         return 'Hello world!';
+      collections: async () => {
+         return Collection.find().sort({ itemCount: -1 });
       }
    }
 };
