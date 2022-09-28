@@ -12,6 +12,9 @@ const itemSchema = new Schema(
     },
     itemDescription: {
       type: String
+    },
+    username: {
+      type: String
     }
   },
   {

@@ -13,8 +13,16 @@ const typeDefs = gql`
       commentCount: Int
    }
 
+   type User {
+      _id: ID
+      username: String
+      email: String
+      Collections: [Collection]
+   }
+
    type Query {
       collections: [Collection]
+      users: [User]
    }
 `;
 

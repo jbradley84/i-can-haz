@@ -10,9 +10,7 @@ const collectionSchema = new Schema(
       type: String
     },
     username: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      //required: true
+      type: String
     },
     items: [
       {
