@@ -22,23 +22,40 @@ db.once('open', async () => {
    }
 
    const createdUsers = await User.collection.insertMany(userData);
+   // console.log(createdUsers);
+
+
+   // create friends
+   for (let i = 0; i < 100; i += 1) {
+      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      const { _id: userId } = createdUsers.ops[randomUserIndex];
+
+      let friendId = userId;
+      // console.log(userId);
+
+      while (friendId === userId) {
+         const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+         friendId = createdUsers.ops[randomUserIndex];
+      }
+
+      await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
+   }
+
 
    // create collections
    let createdCollections = [];
-   for (let i = 0; i < 100; i += 1) {
+   for (let i = 0; i < 5; i += 1) {
       const collectionName = faker.commerce.product();
       const collectionDescription = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      // console.log(randomUserIndex);
       const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+      
+      const createdCollection = await Collection.create({ collectionName, collectionDescription, username });
 
-      const createdCollection = await Collection.create({ collectionName, collectionDescription });
-
-      const updatedUser = await User.updateOne(
-         { _id: userId },
-         { $push: { collections: createdCollection._id } }
-      );
-
+      await User.updateOne({ _id: userId }, { $push: { collections: createdCollection._id } });
+      // console.log(User.createdCollection._id);
       createdCollections.push(createdCollection);
    }
 

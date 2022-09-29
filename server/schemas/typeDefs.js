@@ -17,12 +17,16 @@ const typeDefs = gql`
       _id: ID
       username: String
       email: String
-      Collections: [Collection]
+      collections: [Collection]
+      collectionCount: Int
    }
 
    type Query {
-      collections: [Collection]
+      me: User
       users: [User]
+      user(username: String!): [User]
+      collections(username: String): [Collection]
+      collection(_id: ID!): Collection
    }
 `;
 
