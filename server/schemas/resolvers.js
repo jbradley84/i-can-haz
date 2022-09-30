@@ -4,7 +4,8 @@ const resolvers = {
    Query: {
       // all collections
       collections: async () => {
-         return Collection.find().sort({ itemCount: -1 });
+         return Collection.find().sort({ itemCount: -1 })
+         .populate('items');
       },
 
       // all users

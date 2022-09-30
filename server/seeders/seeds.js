@@ -7,7 +7,7 @@ const { Collection, User, Item, Comment } = require('../models');
 db.once('open', async () => {
    await Collection.deleteMany({});
    await User.deleteMany({});
-   await Item.deleteMany({});
+   //await Item.deleteMany({});
    await Comment.deleteMany({});
 
    // create user data
