@@ -9,6 +9,11 @@ const resolvers = {
          .populate('comments');
       },
 
+      // individual collection
+      collection: async (parent, { _id }) => {
+         return Collection.findOne({ _id });
+      },
+
       // all users
       users: async () => {
          return User.find()
