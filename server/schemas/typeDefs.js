@@ -12,6 +12,7 @@ const typeDefs = gql`
       itemCount: Int
       commentCount: Int
       items: [Item]
+      comments: [Comment]
    }
 
    type Item {
@@ -19,6 +20,12 @@ const typeDefs = gql`
       itemName: String
       itemImage: String
       itemDescription: String
+   }
+
+   type Comment {
+      commentBody: String
+      username: String
+      createdAt: String
    }
 
    type User {
