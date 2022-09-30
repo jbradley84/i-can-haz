@@ -8,36 +8,35 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
-          .select('-__v -password')
-          .populate('collections');
-    
+          .select("-__v -password")
+          .populate("collections");
+
         return userData;
       }
-    
-      throw new AuthenticationError('Not logged in');
+
+      throw new AuthenticationError("Not logged in");
     },
 
     // GET ALL COLLECTIONS
     collections: async () => {
-       return Collection.find().sort({ itemCount: -1 })
-       .populate('items')
-       .populate('comments');
+      return Collection.find()
+        .sort({ itemCount: -1 })
+        .populate("items")
+        .populate("comments");
     },
 
     // GET ALL USERS
     users: async () => {
-       return User.find()
-       .select('-__v -password')
-       .populate('collections');
+      return User.find().select("-__v -password").populate("collections");
     },
 
     //  GET INDIVIDUAL USER BY USERNAME
     user: async (parent, { username }) => {
-       return User.findOne({ username })
-       .select('-__v -password')
-    }
+      return User.findOne({ username }).select("-__v -password");
+    },
   },
 
+  
   Mutation: {
     // ADD USER MUTATION
     addUser: async (parent, args) => {
@@ -65,22 +64,25 @@ const resolvers = {
       return { token, user };
     },
 
-   // ADD COLLECTION MUTATION
+    // ADD COLLECTION MUTATION
     addCollection: async (parent, args, context) => {
       if (context.user) {
-        const collection = await Collection.create({ ...args, username: context.user.username });
-    
+        const collection = await Collection.create({
+          ...args,
+          username: context.user.username,
+        });
+
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { collections: collection._id } },
           { new: true }
         );
-    
+
         return collection;
       }
-    
-      throw new AuthenticationError('You need to be logged in!');
-    }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
