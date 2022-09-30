@@ -7,14 +7,14 @@ const resolvers = {
     // ME QUERY
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
-          "-__v -password"
-        );
-        //  .populate("collections");
-
+        const userData = await User.findOne({ _id: context.user._id })
+          .select('-__v -password')
+          .populate('collections');
+    
         return userData;
       }
-      throw new AuthenticationError("Not logged in");
+    
+      throw new AuthenticationError('Not logged in');
     },
 
     // GET ALL COLLECTIONS
