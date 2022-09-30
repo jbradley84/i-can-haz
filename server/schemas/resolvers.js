@@ -5,7 +5,8 @@ const resolvers = {
       // all collections
       collections: async () => {
          return Collection.find().sort({ itemCount: -1 })
-         .populate('items');
+         .populate('items')
+         .populate('comments');
       },
 
       // all users
