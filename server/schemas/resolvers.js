@@ -1,4 +1,4 @@
-const { User, Collection, Item, Comment } = require('../models');
+const { User, Collection } = require('../models');
 
 const resolvers = {
    Query: {
@@ -9,7 +9,7 @@ const resolvers = {
          .populate('comments');
       },
 
-      // individual collection
+      // individual collection by _id
       collection: async (parent, { _id }) => {
          return Collection.findOne({ _id });
       },
@@ -22,10 +22,11 @@ const resolvers = {
       },
 
       // individual user by username
-      // user: async (parent, { username }) => {
-      //    return User.findOne({ username })
-      //    .select('-__v -password')
-      // }
+      user: async (parent, { username }) => {
+         return User.findOne({ username })
+         .select('-__v -password')
+         .populate('collections');
+      }
    }
 };
 
