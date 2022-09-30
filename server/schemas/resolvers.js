@@ -19,18 +19,23 @@ const resolvers = {
 
     // GET ALL COLLECTIONS
     collections: async () => {
-      return Collection.find().sort({ itemCount: -1 });
+       return Collection.find().sort({ itemCount: -1 })
+       .populate('items')
+       .populate('comments');
     },
 
     // GET ALL USERS
     users: async () => {
-      return User.find().select("-__v -password");
+       return User.find()
+       .select('-__v -password')
+       .populate('collections');
     },
 
     //  GET INDIVIDUAL USER BY USERNAME
     user: async (parent, { username }) => {
-      return User.findOne({ username }).select("-__v -password");
-    },
+       return User.findOne({ username })
+       .select('-__v -password')
+    }
   },
 
   Mutation: {

@@ -11,6 +11,21 @@ const typeDefs = gql`
       username: String
       itemCount: Int
       commentCount: Int
+      items: [Item]
+      comments: [Comment]
+   }
+
+   type Item {
+      _id: ID
+      itemName: String
+      itemImage: String
+      itemDescription: String
+   }
+
+   type Comment {
+      commentBody: String
+      username: String
+      createdAt: String
    }
 
    type User {
