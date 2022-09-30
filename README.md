@@ -4,13 +4,13 @@
 
 ## **User Story**
 ```md
-AS A USER 
-I WANT 
-SO THAT 
+AS A user with a unique collection of items
+I WANT a social platform to log my collection
+SO THAT I can meet others with similar interests and connect with other collectors
 ```
 
 ## **Description**
-A collection management/social media app designed to bring unique collectors together. Users can log their collections, show them off, connect with other collectors, and buy or sell items! 
+A collection management/social media app designed to bring unique collectors together. Users can log their collections, show them off, and connect with other collectors by commenting on one anothers collections! 
 
 
 <!-- !!! ADD LINK TO DEPLOYED APPLICATION -->
@@ -58,12 +58,14 @@ npm init
 npm install
 ```
 
+## **Future Development**
++ Implement the ability for users to buy and sell items
++ Allow users to become friends with and/or follow each another
+
 <br/>
 
 ## **Got Questions?**
 Feel free to reach out with questions or comments regarding I Can Haz! 
-
-<br/>
 
 **Collaborators Github Profiles** &nbsp; :octocat:
 
