@@ -8,7 +8,7 @@ db.once('open', async () => {
    await Collection.deleteMany({});
    await User.deleteMany({});
    //await Item.deleteMany({});
-   await Comment.deleteMany({});
+   //await Comment.deleteMany({});
 
    // create user data
    const userData = [];

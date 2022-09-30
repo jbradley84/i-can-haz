@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const itemSchema = require('./Item');
+const commentSchema = require('./Comment');
 
 
 const collectionSchema = new Schema(
@@ -20,12 +21,13 @@ const collectionSchema = new Schema(
       //       ref: 'Item'
       //    }
       // ],
-      comments: [
-         {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment'
-         }
-      ]
+      comments: [commentSchema]
+      // comments: [
+      //    {
+      //       type: Schema.Types.ObjectId,
+      //       ref: 'Comment'
+      //    }
+      // ]
    },
    {
       toJSON: {
