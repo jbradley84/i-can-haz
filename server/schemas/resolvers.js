@@ -41,6 +41,7 @@ const resolvers = {
 
       return { token, user };
     },
+
     // LOGIN MUTATION
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -58,6 +59,24 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
+   // REVIEW: Add Collection
+   // ADD COLLECTION MUTATION
+    addCollection: async (parent, args, context) => {
+      if (context.user) {
+        const collection = await Collection.create({ ...args, username: context.user.username });
+    
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { collections: collection._id } },
+          { new: true }
+        );
+    
+        return collection;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    }
   },
 };
 
