@@ -3,7 +3,7 @@ import React, {useState} from "react";
 export default function Upload() {
 
     const [imageInputState, setimageInputState] = useState('');
-    const [selectedImage, setSelectedImage] = useState('');
+    // const [selectedImage, setSelectedImage] = useState('');
     const [preveiwSrc, setPreviewSrc] = useState('');
 
     const handleImageInputChange = (e) => {
