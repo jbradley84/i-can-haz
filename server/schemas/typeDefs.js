@@ -28,6 +28,16 @@ const typeDefs = gql`
       collections: [Collection]
       collection(_id: ID!): Collection
    }
+
+   type Mutation {
+      login(email: String!, password: String!): Auth
+      addUser(username: String!, email: String!, password: String!): Auth
+   }
+
+   type Auth {
+      token: ID!
+      user: User
+    }
 `;
 
 // export typeDefs
