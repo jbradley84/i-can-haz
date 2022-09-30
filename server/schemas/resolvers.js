@@ -60,7 +60,6 @@ const resolvers = {
       return { token, user };
     },
 
-   // REVIEW: Add Collection
    // ADD COLLECTION MUTATION
     addCollection: async (parent, args, context) => {
       if (context.user) {
