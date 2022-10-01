@@ -1,6 +1,7 @@
 {
   "name": "i-can-haz",
   "version": "0.1.0",
+<<<<<<< HEAD
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -22,18 +23,22 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+=======
+  "description": "![License: MIT](https://img.shields.io/badge/License-MIT-fff.svg)",
+  "main": "server/server.js",
+>>>>>>> 66a80753d2e3b66ed1532f3492e018d0421d3824
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbradley84/i-can-haz.git"
   },
+<<<<<<< HEAD
   "browserslist": {
     "production": [
       ">0.2%",
@@ -52,11 +57,20 @@
     "type": "git",
     "url": "git+https://github.com/jbradley84/i-can-haz.git"
   },
+=======
+>>>>>>> 66a80753d2e3b66ed1532f3492e018d0421d3824
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jbradley84/i-can-haz/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/jbradley84/i-can-haz#readme"
+=======
+  "homepage": "https://github.com/jbradley84/i-can-haz#readme",
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  }
+>>>>>>> 66a80753d2e3b66ed1532f3492e018d0421d3824
 }
