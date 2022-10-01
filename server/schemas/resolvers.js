@@ -50,9 +50,9 @@ const resolvers = {
       addUser: async (parent, args) => {
          const user = await User.create(args);
          const token = signToken(user);
-
+       
          return { token, user };
-      },
+       },
 
       // LOGIN MUTATION
       login: async (parent, { email, password }) => {
@@ -91,6 +91,36 @@ const resolvers = {
 
          throw new AuthenticationError("You need to be logged in!");
       },
+
+      // ADD ITEM TO COLLECTION
+      addItem: async (parent, { collectionId, itemName, itemImage, itemDescription }, context) => {
+         if (context.user) {
+            const updatedCollection = await Collection.findOneAndUpdate(
+               { _id: collectionId },
+               { $push: { items: { itemName, itemDescription, itemImage } } },
+               { new: true, runValidators: true }
+            );
+
+            return updatedCollection;
+         }
+
+         throw new AuthenticationError('You need to be logged in!');
+      },
+
+      // ADD COMMENT TO COLLECTION
+      addComment: async (parent, { collectionId, commentBody }, context) => {
+         if (context.user) {
+            const updatedCollection = await Collection.findOneAndUpdate(
+               { _id: collectionId },
+               { $push: { comments: { commentBody, username: context.user.username } } },
+               { new: true, runValidators: true }
+            );
+
+            return updatedCollection;
+         }
+
+         throw new AuthenticationError('You need to be logged in!');
+      }
    },
 };
 

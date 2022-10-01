@@ -34,7 +34,7 @@ const ResponsiveAppBar = () => {
       sx={{ backgroundColor: "#D62246", border: "none", mb: 3 }}
     >
       <Container maxWidth="xxl">
-        <Toolbar disableGutters sx={{ padding: 2.5 }}>
+        <Toolbar disableGutters sx={{ py: 2.5 }}>
           <Typography
             variant="h4"
             noWrap
@@ -107,14 +107,15 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Typography
-            variant="h4"
+            variant="h5"
             noWrap
             component="a"
             href=""
             sx={{
               mr: 2,
+              padding: .5,
               display: { xs: "flex", md: "none" },
-              flexGrow: 1,
+              flexGrow: 8,
               fontFamily: "Roboto",
               fontWeight: 700,
               letterSpacing: ".2rem",
@@ -138,10 +139,16 @@ const ResponsiveAppBar = () => {
             </Button>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Button variant="contained" sx={{ backgroundColor: "#1D1541" }}>
+          <Box sx={{ flexShrink: 1 }}>
+
+            <Button variant="contained" sx={{ backgroundColor: "white", p: .2, mr: 1 }}>
               <Link to="/login">
-                <Typography sx={{ color: "white" }}>Login</Typography>
+                <Typography sx={{ color: "black" }}>Login</Typography>
+              </Link>
+            </Button>
+            <Button variant="contained" sx={{ backgroundColor: "white", py: .2, px: 1, ml: 1 }}>
+              <Link to="/signup">
+                <Typography sx={{ color: "black" }}>Sign Up</Typography>
               </Link>
             </Button>
 
