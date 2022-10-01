@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Upload from './cloudinary-testing/Uploadv3';
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
           Learn React
         </a>
       </header>
-      <Upload></Upload>
     </div>
   );
 }
