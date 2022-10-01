@@ -18,11 +18,12 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <Box position="static"
+    <Box position="relative"
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh'
+        bottom: 0,
+        width: '100%'
       }}
     >
       <CssBaseline />
