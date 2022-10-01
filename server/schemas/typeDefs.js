@@ -48,8 +48,8 @@ const typeDefs = gql`
       login(email: String!, password: String!): Auth
       addUser(username: String!, email: String!, password: String!): Auth
       addCollection(collectionName: String!, collectionDescription: String!): Collection
-      # addComment(collectionId: ID!, commentBody: String!): Collection
-      # @Brad - Not sure what to write for "addItem" so i didnt include it
+      addItem(collectionId: ID!, itemName: String!, itemImage: String!, itemDescription: String!): Collection
+      addComment(collectionId: ID!, commentBody: String!): Collection
     }
 
    type Auth {
