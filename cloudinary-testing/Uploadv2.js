@@ -37,11 +37,12 @@ const App = () => {
         <div>
             <form>
                 <input type="file" onChange={handleImageInputChange}></input>
-                <button onClick={uploadImage}></button>
+                <button onClick={uploadImage}>Upload Image</button>
             </form>
             {preveiwSrc && (
                 <img src={preveiwSrc} alt="preview" ></img>
                 )}
+        <Image cloudName="dgbv72kqf" public_id="https://res.cloudinary.com/dgbv72kqf/image/upload/v1664328544/cld-sample-5.jpg"></Image>
         </div>
     )
 };
