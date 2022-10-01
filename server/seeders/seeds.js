@@ -11,7 +11,7 @@ db.once('open', async () => {
    // create user data
    const userData = [];
 
-   for (let i = 0; i < 3; i += 1) {
+   for (let i = 0; i < 10; i += 1) {
       const username = faker.internet.userName();
       const email = faker.internet.email(username);
       const password = faker.internet.password();
@@ -25,7 +25,7 @@ db.once('open', async () => {
 
    // create collections
    let createdCollections = [];
-   for (let i = 0; i < 2; i += 1) {
+   for (let i = 0; i < 15; i += 1) {
       const collectionName = faker.commerce.product();
       const collectionDescription = faker.lorem.words(Math.round(Math.random() * 10) + 1);
 
@@ -41,7 +41,7 @@ db.once('open', async () => {
    }
 
    // create items
-   for (let i = 0; i < 8; i += 1) {
+   for (let i = 0; i < 50; i += 1) {
       const itemName = faker.commerce.productName();
       const itemImage = faker.image.image();
       const itemDescription = faker.commerce.productDescription();
@@ -57,7 +57,7 @@ db.once('open', async () => {
    }
 
    // create comments
-   for (let i = 0; i < 2; i += 1) {
+   for (let i = 0; i < 10; i += 1) {
       const commentBody = faker.lorem.words(Math.round(Math.random() * 10) + 1);
 
       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
