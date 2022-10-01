@@ -18,11 +18,11 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <Box
+    <Box position="static"
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
+        minHeight: '100vh'
       }}
     >
       <CssBaseline />
@@ -32,6 +32,7 @@ export default function Footer() {
           py: 3,
           px: 2,
           mt: 'auto',
+          flexShrink: 0,
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'
               ? theme.palette.grey[200]

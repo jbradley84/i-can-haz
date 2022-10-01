@@ -1,18 +1,15 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
-
-
-const pages = ['Profile', 'Collections', ];
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -31,9 +28,13 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar posistion="sticky" variant="elevation" sx={{ backgroundColor: "#D62246", border: "none", mb: '100px' }}>
+    <AppBar
+      position="static"
+      variant="elevation"
+      sx={{ backgroundColor: "#D62246", border: "none", mb: 3 }}
+    >
       <Container maxWidth="xxl">
-        <Toolbar disableGutters sx={{ padding: "5px" }}>
+        <Toolbar disableGutters sx={{ padding: 2.5 }}>
           <Typography
             variant="h4"
             noWrap
@@ -41,20 +42,20 @@ const ResponsiveAppBar = () => {
             href="/"
             sx={{
               mr: 5,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'ROBOTO',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "ROBOTO",
               fontWeight: 700,
-              letterSpacing: '.2rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".2rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             I CAN HAZ
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
-              size='large'
+              size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -67,25 +68,41 @@ const ResponsiveAppBar = () => {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center"
+                   sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <Button>
+                    <Link to="/profile">
+                      <Typography sx={{ color: "black" }}>Profile</Typography>
+                    </Link>
+                  </Button>
+                  <Button>
+                    <Link to="/">
+                      <Typography sx={{ color: "black" }}>
+                        Collections
+                      </Typography>
+                    </Link>
+                  </Button>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -96,51 +113,50 @@ const ResponsiveAppBar = () => {
             href=""
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'Roboto',
+              fontFamily: "Roboto",
               fontWeight: 700,
-              letterSpacing: '.2rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".2rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             I CAN HAZ
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button>
+              <Link to="/profile">
+                <Typography sx={{ color: "white" }}>Profile</Typography>
+              </Link>
+            </Button>
+            <Button>
+              <Link to="/">
+                <Typography sx={{ color: "white" }}>Collections</Typography>
+              </Link>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button variant="contained" sx={{ backgroundColor: '#140F2D'}}>
-              <Link to="/login"> 
-                <Typography sx={{ color: 'white' }}>
-                  Login
-                </Typography>
+            <Button variant="contained" sx={{ backgroundColor: "#1D1541" }}>
+              <Link to="/login">
+                <Typography sx={{ color: "white" }}>Login</Typography>
               </Link>
             </Button>
-       
+
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}

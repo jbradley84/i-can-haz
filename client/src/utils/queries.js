@@ -7,17 +7,27 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      friendCount
-      friends {
+      collections {
         _id
-        username
+        collectionName
+        collectionDescription
+        itemCount
+        commentCount
       }
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-        reactionCount
-      }
+    }
+  }
+`;
+
+// QUERY ALL COLLECTIONS
+export const QUERY_COLLECTIONS = gql`
+  query collections($username: String) {
+    collections(username: $username) {
+    _id
+    collectionName
+    collectionDescription
+    username
+    itemCount
+    commentCount
     }
   }
 `;
