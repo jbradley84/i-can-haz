@@ -15,19 +15,7 @@ const collectionSchema = new Schema(
          type: String
       },
       items: [itemSchema],
-      // items: [
-      //    {
-      //       type: Schema.Types.ObjectId,
-      //       ref: 'Item'
-      //    }
-      // ],
       comments: [commentSchema]
-      // comments: [
-      //    {
-      //       type: Schema.Types.ObjectId,
-      //       ref: 'Comment'
-      //    }
-      // ]
    },
    {
       toJSON: {
