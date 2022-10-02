@@ -110,7 +110,7 @@ const resolvers = {
          throw new AuthenticationError("You need to be logged in!");
       },
 
-      // UPDATE COLLECTION
+      // UPDATE COLLECTION **bugged - will return null value for name or description if not specified
       updateCollection: async (parent, { collectionId, collectionName, collectionDescription }, context) => {
          if (context.user) {
             const updatedCollection = await Collection.findByIdAndUpdate(
