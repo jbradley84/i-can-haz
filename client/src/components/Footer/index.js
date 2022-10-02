@@ -41,7 +41,7 @@ export default function Footer() {
         }}
       >
         <Container maxWidth="xxl">
-          <Typography variant="body1" sx={{ color: "#D62246" }}>
+          <Typography variant="body1" color="primary">
               I Can Haz
           </Typography>
           <Copyright />

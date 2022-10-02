@@ -25,7 +25,7 @@ const CollectionList = ({ collections, title }) => {
               my: 2,
               mx: 2,
               // maxWidth: 345,
-              backgroundColor: "#D62246",
+              bgcolor: "primary.main",
               color: "white",
               borderRadius: 1,
             }}

@@ -31,7 +31,8 @@ const ResponsiveAppBar = () => {
     <AppBar
       position="static"
       variant="elevation"
-      sx={{ backgroundColor: "#D62246", border: "none", mb: 3 }}
+      color="primary"
+      sx={{ border: "none", mb: 3 }}
     >
       <Container maxWidth="xxl">
         <Toolbar disableGutters sx={{ py: 2.5 }}>

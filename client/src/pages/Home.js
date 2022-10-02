@@ -40,14 +40,14 @@ const Home = () => {
                   spacing={2}
                   justifyContent="center"
                 >
-                  <Button variant="contained" sx={{ backgroundColor: "#D62246" }}>
+                  <Button variant="contained">
                     <Link to="/collectionForm" >
                       <Typography sx={{ color: "white" }}>Add A Collection</Typography>
                     </Link>
                   </Button>
                   <Link to="/profile">
-                    <Button variant="outlined" sx={{ borderColor: "#D62246" }}>
-                      <Typography sx={{ color: "#D62246" }}>View Profile</Typography>
+                    <Button variant="outlined">
+                      <Typography>View Profile</Typography>
                     </Button>
                   </Link>
                 </Stack>
