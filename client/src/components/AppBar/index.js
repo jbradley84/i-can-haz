@@ -31,7 +31,8 @@ const ResponsiveAppBar = () => {
     <AppBar
       position="static"
       variant="elevation"
-      sx={{ backgroundColor: "#D62246", border: "none", mb: 3 }}
+      color="primary"
+      sx={{ border: "none", mb: 3 }}
     >
       <Container maxWidth="xxl">
         <Toolbar disableGutters sx={{ py: 2.5 }}>
@@ -83,22 +84,21 @@ const ResponsiveAppBar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center"
-                   sx={{
+                <Typography
+                  textAlign="center"
+                  sx={{
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
                   <Button>
                     <Link to="/profile">
-                      <Typography sx={{ color: "black" }}>Profile</Typography>
+                      <Typography>Profile</Typography>
                     </Link>
                   </Button>
                   <Button>
                     <Link to="/">
-                      <Typography sx={{ color: "black" }}>
-                        Collections
-                      </Typography>
+                      <Typography>Collections</Typography>
                     </Link>
                   </Button>
                 </Typography>
@@ -107,13 +107,13 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Typography
-            variant="h5"
+            variant="h4"
             noWrap
             component="a"
             href=""
             sx={{
               mr: 2,
-              padding: .5,
+              padding: 0.5,
               display: { xs: "flex", md: "none" },
               flexGrow: 8,
               fontFamily: "Roboto",
@@ -140,13 +140,33 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexShrink: 1 }}>
-
-            <Button variant="contained" sx={{ backgroundColor: "white", p: .2, mr: 1 }}>
+            <Button
+              variant="contained"
+              sx={{
+                p: 0.2,
+                mr: 1,
+                bgcolor: "white",
+                ":hover": {
+                  bgcolor: "secondary.light",
+                },
+              }}
+            >
               <Link to="/login">
                 <Typography sx={{ color: "black" }}>Login</Typography>
               </Link>
             </Button>
-            <Button variant="contained" sx={{ backgroundColor: "white", py: .2, px: 1, ml: 1 }}>
+            <Button
+              variant="contained"
+              sx={{
+                py: 0.2,
+                px: 1,
+                ml: 1,
+                bgcolor: "white",
+                ":hover": {
+                  bgcolor: "secondary.light",
+                },
+              }}
+            >
               <Link to="/signup">
                 <Typography sx={{ color: "black" }}>Sign Up</Typography>
               </Link>
