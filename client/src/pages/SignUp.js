@@ -52,7 +52,8 @@ const Signup = () => {
       <CssBaseline />
       <Box
         sx={{
-          my: 8.5,
+          mt: 6,
+          mb: 11,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -79,6 +80,7 @@ const Signup = () => {
                 required
                 fullWidth
                 // autoFocus
+                color="secondary"
                 label="Username"
                 name="username"
                 type="username"
@@ -91,6 +93,7 @@ const Signup = () => {
               <TextField
                 required
                 fullWidth
+                color="secondary"
                 label="Email Address"
                 name="email"
                 type="email"
@@ -103,6 +106,7 @@ const Signup = () => {
               <TextField
                 required
                 fullWidth
+                color="secondary"
                 label="Password"
                 name="password"
                 type="password"

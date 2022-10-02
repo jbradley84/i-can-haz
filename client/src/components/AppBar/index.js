@@ -142,12 +142,31 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexShrink: 1 }}>
 
-            <Button variant="contained" sx={{ backgroundColor: "white", p: .2, mr: 1 }}>
+            <Button variant="contained" 
+              sx={{ 
+                p: .2, 
+                mr: 1,
+                bgcolor: "white", 
+                ":hover": {
+                  bgcolor: "secondary.lighter"
+                }
+              }}
+            >
               <Link to="/login">
                 <Typography sx={{ color: "black" }}>Login</Typography>
               </Link>
             </Button>
-            <Button variant="contained" sx={{ backgroundColor: "white", py: .2, px: 1, ml: 1 }}>
+            <Button variant="contained" 
+              sx={{ 
+                py: .2, 
+                px: 1,
+                ml: 1,
+                bgcolor: "white", 
+                ":hover": {
+                  bgcolor: "secondary.lighter"
+                }
+              }}
+            >
               <Link to="/signup">
                 <Typography sx={{ color: "black" }}>Sign Up</Typography>
               </Link>

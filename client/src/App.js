@@ -38,12 +38,14 @@ const theme = createTheme ({
       contrastText: '#ffffff',
       light: '#de4e6b',
       dark: '#951731',
+      lighter: '#F5ABBA'
     },
     secondary: {
       main: '#0ab8b6',
       contrastText: '#ffffff',
       light: '#3bc6c4',
       dark: '#07807f',
+      lighter: '#74D6D5'
     },
     background: {
       default: '#ffffff',
