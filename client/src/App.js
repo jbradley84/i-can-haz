@@ -19,38 +19,38 @@ import '@fontsource/roboto/700.css';
 
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+   uri: "/graphql",
 });
 
 const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
+   link: httpLink,
+   cache: new InMemoryCache(),
 });
 
 
 function App() {
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className='App'>
-          <Header />
-          <div className='page-container'>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/profile">
-                <Route path=":username" element={<Profile />} />
-                <Route path="" element={<Profile />} />
-              </Route>
+   return (
+      <ApolloProvider client={client}>
+         <Router>
+            <div className='App'>
+               <Header />
+               <div className='page-container'>
+                  <Routes>
+                     <Route path="/" element={<Home />} />
+                     <Route path="/login" element={<Login />} />
+                     <Route path="/profile">
+                        <Route path=":username" element={<Profile />} />
+                        <Route path="" element={<Profile />} />
+                     </Route>
 
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
-          </div>
-          <Footer />
-        </div>
-      </Router>
-    </ApolloProvider>
-  );
+                     <Route path="*" element={<NoMatch />} />
+                  </Routes>
+               </div>
+               <Footer />
+            </div>
+         </Router>
+      </ApolloProvider>
+   );
 }
 
 export default App;
