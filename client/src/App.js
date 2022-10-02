@@ -1,7 +1,7 @@
 import './App.css';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 
 // IMPORT COMPONENTS
 import Header from "./components/Header";
@@ -23,14 +23,14 @@ import '@fontsource/roboto/700.css';
 // CUSTOM MATERIAL UI THEME
 /*  HOW TO USE: 
     primary = red/pink
-    secondary = blue/teal
+    secondary = blue/purple
    • All colors default to "main" so for main shade use the color prop ➝ color="primary"
    • To use the light & dark shades you must use the sx prop ➝ sx={{ color: 'primary.light' }}
    • If you need to specify black or white for something then it will only work in the sx prop
    • For some components using a main color (ie. primary or secondary alone) with the color prop 
      won't work so in that case use an sx prop and specfify main ➝ sx={{ color: 'primary.main' }}
 */ 
-const theme = createTheme ({
+let theme = createTheme ({
   palette: {
     type: 'light',
     primary: {
@@ -41,11 +41,10 @@ const theme = createTheme ({
       lighter: '#F5ABBA'
     },
     secondary: {
-      main: '#0ab8b6',
+      main: '#4e54c8',
       contrastText: '#ffffff',
-      light: '#3bc6c4',
-      dark: '#07807f',
-      lighter: '#74D6D5'
+      light: '#7176d3',
+      dark: '#363a8c',
     },
     background: {
       default: '#ffffff',
@@ -65,6 +64,7 @@ const theme = createTheme ({
   },
 });
 
+theme = responsiveFontSizes(theme);
 
 const httpLink = createHttpLink({
    uri: "/graphql",
@@ -95,6 +95,7 @@ function App() {
 
                         <Route path="*" element={<NoMatch />} />
                      </Routes>
+                     
                   </div>
                   <Footer />
                </div>

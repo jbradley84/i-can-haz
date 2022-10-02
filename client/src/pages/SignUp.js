@@ -3,7 +3,6 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import { Link } from "react-router-dom";
 
-// MATERIAL UI IMPORTS
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,6 +12,7 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -23,7 +23,7 @@ const Signup = () => {
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
-  // update state based on form input changes
+  // Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -35,9 +35,8 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // use try/catch instead of promises to handle errors
     try {
-      // execute addUser mutation and pass in variable data from form
+      // Execute addUser mutation and pass in variable data from form
       const { data } = await addUser({
         variables: { ...formState },
       });
@@ -48,22 +47,30 @@ const Signup = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component={Paper}
+      elevation={6}
+      square
+      maxWidth="sm"
+      sx={{
+        height: "80vh",
+      }}
+    >
       <CssBaseline />
       <Box
         sx={{
-          mt: 6,
-          mb: 11,
+          pt: 10,
+          mx: 4,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
         {/* ICON & TITLE */}
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ mt: 0, mb: 1, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h4">
           Sign up
         </Typography>
 
@@ -72,14 +79,14 @@ const Signup = () => {
           component="form"
           noValidate
           onSubmit={handleFormSubmit}
-          sx={{ mt: 3 }}
+          sx={{ mt: 4 }}
         >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
-                // autoFocus
+                autoFocus
                 color="secondary"
                 label="Username"
                 name="username"
@@ -130,7 +137,7 @@ const Signup = () => {
             type="submit"
             variant="contained"
             sx={{
-              mt: 3,
+              mt: 1,
               mb: 2,
               ":hover": {
                 bgcolor: "secondary.main",
@@ -142,9 +149,13 @@ const Signup = () => {
           </Button>
 
           {/* ALREADY HAVE ACCT THEN LOGIN LINK */}
-          <Grid container justifyContent="flex-end">
+          <Grid
+            container
+            justifyContent="flex-end"
+            sx={{ position: "relative" }}
+          >
             <Grid item>
-              <Link to="/login" variant="body2">
+              <Link to="/login" variant="a">
                 <Typography sx={{ color: "secondary.dark" }}>
                   Already have an account? Login
                 </Typography>
