@@ -49,8 +49,13 @@ const typeDefs = gql`
       login(email: String!, password: String!): Auth
       addUser(username: String!, email: String!, password: String!): Auth
       updateUser(username: String, email: String, password: String): User
+      deleteUser(userId: ID!): User
       addCollection(collectionName: String!, collectionDescription: String!): Collection
+      updateCollection(collectionId: ID!, collectionName: String, collectionDescription: String): Collection
+      deleteCollection(collectionId: ID!): Collection
       addItem(collectionId: ID!, itemName: String!, itemImage: String!, itemDescription: String!): Collection
+      updateItem(itemId: ID!, itemName: String, itemImage: String, itemDescription: String): Collection
+      deleteItem(collectionId: ID!, itemId: ID!): Collection
       addComment(collectionId: ID!, commentBody: String!): Collection
     }
 

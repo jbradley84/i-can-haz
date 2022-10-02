@@ -63,6 +63,15 @@ const resolvers = {
          throw new AuthenticationError('You must be logged in to do that!');
        },
 
+       // DELETE USER
+      //  deleteUser: async (parent, args, context) => {
+      //    if (context.user) {
+      //       return await User.findByIdAndDelete(context.user._id, args, { new: true });
+      //    }
+
+      //    throw new AuthenticationError('You must be logged in to do that!');
+      //  },
+
       // LOGIN MUTATION
       login: async (parent, { email, password }) => {
          const user = await User.findOne({ email });
@@ -101,6 +110,23 @@ const resolvers = {
          throw new AuthenticationError("You need to be logged in!");
       },
 
+      // UPDATE COLLECTION
+      updateCollection: async (parent, { collectionId, collectionName, collectionDescription }, context) => {
+         if (context.user) {
+            const updatedCollection = await Collection.findByIdAndUpdate(
+               { _id: collectionId },
+               { collectionName, collectionDescription },
+               { new: true, runValidators: true }
+            );
+
+            return updatedCollection;
+         }
+
+         throw new AuthenticationError('You need to be logged in!');
+      },
+
+      // DELETE COLLECTION
+
       // ADD ITEM TO COLLECTION
       addItem: async (parent, { collectionId, itemName, itemImage, itemDescription }, context) => {
          if (context.user) {
@@ -115,6 +141,24 @@ const resolvers = {
 
          throw new AuthenticationError('You need to be logged in!');
       },
+
+      // DELETE ITEM
+      deleteItem: async (parent, { collectionId, itemId }, context) => {
+         if (context.user) {
+            const updatedCollection = await Collection.findOneAndUpdate(
+               { _id: collectionId },
+               { $pull: { items: { itemId } } },
+               { new: true, runValidators: true }
+            );
+
+            return updatedCollection;
+         }
+
+         throw new AuthenticationError('You need to be logged in!');
+      },
+
+      // UPDATE ITEM
+      
 
       // ADD COMMENT TO COLLECTION
       addComment: async (parent, { collectionId, commentBody }, context) => {
