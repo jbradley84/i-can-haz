@@ -15,7 +15,6 @@ const CollectionList = ({ collections, title }) => {
 
   return (
     <div className="contain">
-      {/* <h1>{title}</h1> */}
       {collections &&
         collections.map((collection) => (
           <Card
@@ -24,8 +23,7 @@ const CollectionList = ({ collections, title }) => {
             sx={{
               my: 2,
               mx: 2,
-              // maxWidth: 345,
-              backgroundColor: "#D62246",
+              bgcolor: "primary.main",
               color: "white",
               borderRadius: 1,
             }}
@@ -33,7 +31,7 @@ const CollectionList = ({ collections, title }) => {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="160"
+                height="175"
                 // GET URLS FROM CLOUDINARY
                 image="placeholder.jpeg"
                 alt="lizard"
