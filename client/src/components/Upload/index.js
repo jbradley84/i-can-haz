@@ -38,28 +38,26 @@ import React, { useState } from "react";
 export default function Upload() {
   const [imageUrl, setImageUrl] = useState("");
 
-  const imageWidget = window.cloudinary.openUploadWidget(
-    {
-      cloudName: "dgbv72kqf",
-      uploadPreset: "collectaur",
-    },
-    (error, result) => {
-      if (!error && result && result.event === "success") {
-        console.log("Done! Here is the image info: ", result.info.url);
-        setImageUrl(result.info.url);
+  const imageWidget = () => {
+    let widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: "dgbv72kqf",
+        uploadPreset: "collectaur",
+      },
+      (error, result) => {
+        if (!error && result && result.event === "success") {
+          console.log("Done! Here is the image info: ", result.info.url);
+          setImageUrl(result.info.url);
+        }
       }
-    }
-  );
-  imageWidget.open();
+    );
+    widget.open();
+  };
 
   return (
     <div>
       <img src={imageUrl} alt="upload preview"></img>
-      <button
-        id="upload_widget"
-        className="cloudinary-button"
-        onClick={imageWidget}
-      >
+      <button id="upload_widget" className="cloudinary-button" onClick={imageWidget}>
         Upload Image
       </button>
     </div>
