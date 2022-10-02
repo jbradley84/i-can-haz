@@ -132,7 +132,6 @@ const Signup = () => {
             sx={{
               mt: 3,
               mb: 2,
-              bgcolor: "primary.main",
               ":hover": {
                 bgcolor: "secondary.main",
                 color: "white",

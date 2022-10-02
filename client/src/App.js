@@ -7,7 +7,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Signup from "./pages/Signup";
+import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 // import Profile from "./pages/Profile";
 // import SingleCollection from "./pages/SingleCollection";
@@ -87,7 +87,7 @@ function App() {
                      <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/signup" element={<SignUp />} />
                         {/* <Route path="/profile">
                            <Route path=":username" element={<Profile />} />
                            <Route path="" element={<Profile />} />
