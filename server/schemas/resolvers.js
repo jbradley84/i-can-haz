@@ -54,6 +54,15 @@ const resolvers = {
          return { token, user };
        },
 
+       // UPDATE USER
+       updateUser: async (parent, args, context) => {
+         if (context.user) {
+            return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+         }
+
+         throw new AuthenticationError('You must be logged in to do that!');
+       },
+
       // LOGIN MUTATION
       login: async (parent, { email, password }) => {
          const user = await User.findOne({ email });
