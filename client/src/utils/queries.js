@@ -31,3 +31,19 @@ export const QUERY_COLLECTIONS = gql`
     }
   }
 `;
+
+// QUERY ME
+export const QUERY_ME = gql`
+  query me {
+   _id
+   username
+   email
+   collections {
+      _id
+      collectionName
+      collectionDescription
+      itemCount
+      commentCount
+   }
+  }
+`
