@@ -125,7 +125,7 @@ const resolvers = {
          throw new AuthenticationError('You need to be logged in!');
       },
 
-      // DELETE COLLECTION **not working
+      // DELETE COLLECTION
       deleteCollection: async (parent, { collectionId }, context) => {
          if (context.user) {
             const updatedCollection = await Collection.findByIdAndDelete(
@@ -151,17 +151,27 @@ const resolvers = {
             return updatedCollection;
          }
 
-         throw new AuthenticationError('You need to be logged in!');
+         throw new AuthenticationError('You need to be logged in to do that!');
       },
 
-      // UPDATE ITEM
+      // UPDATE ITEM **not working
+      updateItem: async (parent, { itemId, itemName, itemImage, itemDescription }, context) => {
+         if (context.user) {
+            const updatedCollection = await Collection.findByIdAndUpdate(
+               { _id: itemId },
+               { $push: { items: { itemName, itemDescription, itemImage } } },
+            );
 
+            return updatedCollection;
+         }
 
+         throw new AuthenticationError('You need to be logged in to do that!');
+      },
 
       // DELETE ITEM **not working
       deleteItem: async (parent, { collectionId, itemId }, context) => {
          if (context.user) {
-            const updatedCollection = await Collection.findOneAndUpdate(
+            const updatedCollection = await Collection.findByIdAndUpdate(
                { _id: collectionId },
                { $pull: { items: { itemId } } },
                { new: true, runValidators: true }
