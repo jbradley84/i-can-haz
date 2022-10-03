@@ -4,6 +4,15 @@ font-family: 'Oswald', sans-serif;
 font-family: 'Pacifico', cursive;
 font-family: 'Roboto Condensed', sans-serif; */
 
+:root {
+  --primary-main: #D62246;
+  --primary-light: #de4e6b;
+  --primary-dark: #951731;
+  --secondary-main: #4e54c8;
+  --secondary-light: #7176d3;
+  --secondary-dark: #363a8c;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,12 +48,12 @@ body {
 }
 
 
+
 /* START FLOATING SQUARES ANIMATION */
 /* CREDIT/SOURCE: https://codepen.io/tokyoweb/pen/ZjdYVj */
 .area {
   background: #4e54c8;
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
-  
   height: 80vh;
   display: flex;
 }
