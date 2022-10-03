@@ -27,7 +27,7 @@ export default function Upload() {
 
   return (
     <div>
-      <img src={imageUrl} alt="upload preview"></img>
+      {/* <img src={imageUrl} alt="upload preview"></img> */}
       <button id="upload_widget" className="cloudinary-button" onClick={imageWidget}>
         Upload Image
       </button>
