@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -36,11 +37,11 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      // Execute addUser mutation and pass in variable data from form
       const { data } = await addUser({
-        variables: { ...formState },
+        variables: { ...formState }
       });
-      console.log(data);
+    
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }

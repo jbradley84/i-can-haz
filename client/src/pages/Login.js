@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -35,11 +36,12 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      console.log(data);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
-    // Clear form values
+    
+    // clear form values
     setFormState({
       email: "",
       password: "",
