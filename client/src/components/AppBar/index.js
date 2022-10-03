@@ -14,18 +14,15 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 // import { styled } from '@mui/material/styles';
 
-
-
 const btn = {
-  py: .2,
-  px: .8,
-  m: .5,
+  py: 0.2,
+  px: 0.8,
+  m: 0.5,
   backgroundColor: "#ffffff",
   ":hover": {
     bgcolor: "secondary.light",
   },
 };
-
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -58,11 +55,11 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xxl">
         <Toolbar disableGutters sx={{ py: 2.5 }}>
           <Link to="/">
+            {/* I CAN HAZ on wide screen (ie. desktop) */}
             <Typography
               variant="h4"
               noWrap
               component="a"
-              href="/"
               sx={{
                 mr: 5,
                 display: { xs: "none", md: "flex" },
@@ -80,7 +77,7 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="menu options pop-up"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -123,13 +120,17 @@ const ResponsiveAppBar = () => {
 
                   <Button>
                     <Link to="/">
-                      <Typography sx={{ color: "black" }}>Collections</Typography>
+                      <Typography sx={{ color: "black" }}>
+                        Collections
+                      </Typography>
                     </Link>
                   </Button>
 
                   <Button>
                     <Link to="/collectionForm">
-                      <Typography sx={{ color: "black" }}>+ Collection</Typography>
+                      <Typography sx={{ color: "black" }}>
+                        + Collection
+                      </Typography>
                     </Link>
                   </Button>
                   {/* ⬆︎ DROP DOWN MENU BTNS  */}
@@ -138,83 +139,71 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
 
-          <Link to="/">
-            <Typography
-              variant="h4"
-              noWrap
-              component="a"
-              sx={{
-                mr: 2,
-                padding: 0.5,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 8,
-                fontFamily: "Roboto",
-                fontWeight: 700,
-                letterSpacing: ".2rem",
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              I CAN HAZ
-            </Typography>
-          </Link>
+          <Box sx={{ flexGrow: 8, display: { xs: "flex", md: "none" } }}>
+            <Link to="/">
+              {/* I CAN HAZ on thin screen (ie. tablet/mobile) */}
+              <Typography
+                variant="h4"
+                noWrap
+                component="a"
+                sx={{
+                  mr: 2,
+                  padding: 0.5,
+                  fontFamily: "Roboto",
+                  fontWeight: 700,
+                  letterSpacing: ".2rem",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                I CAN HAZ
+              </Typography>
+            </Link>
+          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button>
               <Link to="/">
-                <Typography sx={{ color: "white" }}>Collections</Typography>
+                <Typography sx={{ color: "white", fontSize: 18 }}>
+                  Collections
+                </Typography>
               </Link>
             </Button>
           </Box>
 
           <Box sx={{ flexShrink: 1 }}>
-            <div className="text-center">
-              {Auth.loggedIn() ? (
-                <>
+            {Auth.loggedIn() ? (
+              <>
                 {/* ⬇︎ Buttons for LOGGED IN = TRUE 𛰧profile/logout𛰨 */}
-                  <Button
-                    variant="contained"
-                    sx={btn}
-                  >
-                    <Link to="/profile">
-                      <Typography sx={{ color: "black" }}>Profile</Typography>
-                    </Link>
-                  </Button>
+                <Button variant="contained" sx={btn}>
+                  <Link to="/profile">
+                    <Typography sx={{ color: "black" }}>Profile</Typography>
+                  </Link>
+                </Button>
 
-                  <Button
-                    variant="contained"
-                    sx={btn}
-                  >
-                    <Link to="/login" onClick={logout}>
-                      <Typography sx={{ color: "black" }}>Logout</Typography>
-                    </Link>
-                  </Button>
+                <Button variant="contained" sx={btn}>
+                  <Link to="/login" onClick={logout}>
+                    <Typography sx={{ color: "black" }}>Logout</Typography>
+                  </Link>
+                </Button>
                 {/* ⬆︎ Buttons for LOGGED IN = TRUE 𛰧profile/logout𛰨 */}
-                </>
-            
-              ) : (
-                <>
+              </>
+            ) : (
+              <>
                 {/* ⬇︎ Buttons for LOGGED IN = FALSE 𛰧login/signup𛰨 */}
-                  <Button
-                    variant="contained"
-                    sx={btn}
-                  >
-                    <Link to="/login">
-                      <Typography sx={{ color: "black" }}>Login</Typography>
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="contained"
-                    sx={btn}
-                  >
-                    <Link to="/signup">
-                      <Typography sx={{ color: "black" }}>Sign Up</Typography>
-                    </Link>
-                  </Button>
+                <Button variant="contained" sx={btn}>
+                  <Link to="/login">
+                    <Typography sx={{ color: "black" }}>Login</Typography>
+                  </Link>
+                </Button>
+                <Button variant="contained" sx={btn}>
+                  <Link to="/signup">
+                    <Typography sx={{ color: "black" }}>Sign Up</Typography>
+                  </Link>
+                </Button>
                 {/* ⬆︎ Buttons for LOGGED IN = FALSE 𛰧login/signup𛰨 */}
-                </>
-              )}
-            </div>
+              </>
+            )}
 
             <Menu
               sx={{ mt: "45px" }}

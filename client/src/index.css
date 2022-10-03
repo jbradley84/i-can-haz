@@ -195,10 +195,6 @@ a:active {text-decoration: none;}
 }
 
 @media screen and (max-width: 435px) {
-  /* .page-container {
-    margin: 20px 10px;
-  } */
-
   .card {
     width: 100%;
   } 
