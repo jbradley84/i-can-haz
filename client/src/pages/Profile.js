@@ -25,28 +25,30 @@ const Profile = () => {
   }
 
 
-  if (!user?.username) {
-    return (
-      <h4 className="prof-warning">
-        You need to be logged in to see this page. Use the navigation links above to sign up or log in!
-      </h4>
-    );
-  }
+  // if (!user?.username) {
+  //   return (
+  //     <h4 className="prof-warning">
+  //       You need to be logged in to see this page. Use the navigation links above to sign up or log in!
+  //     </h4>
+  //   );
+  // }
 
+  console.log(userParam) 
   
   return (
     <div>
       <div>
         <h2>
-          Viewing {userParam ? `${user.username}'s` : "your"} profile.
+          Viewing {userParam ? `${userParam}'s` : "your"} profile.
         </h2>
       </div>
 
       <div>
         <div>
+          
           <CollectionList
             collections={user.collections}
-            title={`${user.username}'s collections...`}
+            title={`${userParam}'s collections...`}
           />
         </div>
       </div>
