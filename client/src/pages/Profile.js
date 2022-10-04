@@ -4,16 +4,19 @@ import Auth from "../utils/auth";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { Link } from "react-router-dom";
 
 import {
   Avatar,
   Box,
+  Button,
   Container,
   Divider,
   Grid,
   Typography,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const Profile = () => {
   // const { loading, data } = useQuery(QUERY_COLLECTIONS);
@@ -79,6 +82,46 @@ const Profile = () => {
           </Grid>
         </Grid>
       </Box>
+
+
+      <Box>
+        <Grid
+          container
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Grid item>
+            <Button
+              variant="contained"
+              color="secondary"
+              sx={{
+                ":hover": {
+                  bgcolor: "primary.main",
+                },
+              }}
+            >
+              <Link to="/AccountSettings">
+                <Typography
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontSize: 14,
+                    color: "white",
+                  }}
+                >
+                  Account Settings
+                  <SettingsIcon sx={{ ml: 1, fontSize: 21 }}/>
+                </Typography>
+              </Link>
+            </Button>
+          </Grid>
+        </Grid>
+      </Box>
+
 
       <Box>
         <Typography

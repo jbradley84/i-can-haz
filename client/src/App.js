@@ -24,7 +24,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 // import SingleCollection from "./pages/SingleCollection";
-// import SingleItem from "./pages/SingleItem";
+import AccountSettings from "./pages/AccountSettings";
 import NoMatch from "./pages/NoMatch";
 
 // IMPORT ROBOTO FONT VARIATIONS
@@ -116,7 +116,8 @@ function App() {
                   <Route path="" element={<Profile />} />
                 </Route>
                 <Route path="/CollectionForm" element={<CollectionForm />} />
-
+                <Route path="/AccountSettings" element={<AccountSettings />} />
+                
                 <Route path="*" element={<NoMatch />} />
               </Routes>
             </div>
