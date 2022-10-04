@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { ADD_ITEM } from "../../utils/mutations";
+import { QUERY_COLLECTIONS, QUERY_ME } from "../../utils/queries";
 
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -10,8 +11,15 @@ import Grid from "@mui/material/Grid";
 
 const ItemForm = () => {
 
-  
-
+  const {loading, data} = useQuery(QUERY_COLLECTIONS);
+  const queryTest = (e) => {
+    e.preventDefault();
+    //test grabbing collections
+    const collections = data?.collections || [];
+    console.log(collections);
+    console.log(collections[0]._id);
+    //end test
+  }
 
   const [imageUrl, setImageUrl] = useState("");
   const [formState, setFormState] = useState({
@@ -77,7 +85,7 @@ const ItemForm = () => {
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1, mb: 2 }}>
+        <Box component="form" onSubmit={queryTest} noValidate sx={{ mt: 1, mb: 2 }}>
           <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item>
               <TextField
