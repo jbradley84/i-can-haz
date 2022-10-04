@@ -47,6 +47,8 @@ body {
   font-weight: 700;
 }
 
+.no-match,
+.no-collection,
 .prof-warning {
   display: flex;
   align-items: center;
@@ -54,6 +56,17 @@ body {
   padding: 0px 20px;
   justify-content: center;
 }
+
+/* .profile-title {
+  background-color: white;
+  box-shadow: 
+    /* -5px -5px 10px rgba(225, 225, 225, .8),  */
+    /* 5px 5px 10px rgba(95, 95, 95, 0.125), */
+    /* inset -5px -5px 10px rgba(211, 128, 146, 0.303),
+    inset 5px 5px 10px  rgba(211, 128, 146, 0.179);
+  backdrop-filter: blur(90%); 
+} */
+
 
 /* START FLOATING SQUARES ANIMATION */
 /* CREDIT/SOURCE: https://codepen.io/tokyoweb/pen/ZjdYVj */

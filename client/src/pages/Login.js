@@ -55,6 +55,7 @@ const Login = (props) => {
       {/* LEFT HALF WITH ANIMATION */}
       <Grid
         item
+        align="center"
         className="area"
         xs={false}
         sm={4}
@@ -68,10 +69,11 @@ const Login = (props) => {
       >
         <Typography
           variant="h3"
+          
           sx={{
             color: "white",
             fontFamily: "Pacifico",
-            width: "75%",
+            width: "75%"
           }}
         >
           You can have it all with
@@ -130,6 +132,7 @@ const Login = (props) => {
               required
               fullWidth
               id="email"
+              color="secondary"
               label="Email Address"
               name="email"
               type="email"
@@ -142,6 +145,7 @@ const Login = (props) => {
               margin="normal"
               required
               fullWidth
+              color="secondary"
               name="password"
               label="Password"
               type="password"

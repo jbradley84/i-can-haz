@@ -11,7 +11,7 @@ import { CardActionArea } from "@mui/material";
 
 const CollectionList = ({ collections }) => {
   if (!collections.length) {
-    return <h3>No Collections Yet</h3>;
+    return <h3 className="no-collection">No Collections Yet</h3>;
   }
   
 
