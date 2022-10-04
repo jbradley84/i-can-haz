@@ -17,7 +17,8 @@ import {
 } from "@mui/material/styles";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ItemForm from './components/ItemForm';
+// import ItemForm from './components/ItemForm';
+import CollectionForm from "./components/CollectionForm";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
@@ -113,7 +114,7 @@ function App() {
                   <Route path=":username" element={<Profile />} />
                   <Route path="" element={<Profile />} />
                 </Route>
-
+                <Route path="/CollectionForm" element={<CollectionForm />} />
                 <Route path="*" element={<NoMatch />} />
               </Routes>
             </div>

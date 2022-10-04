@@ -16,7 +16,7 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
-  const collections = data?.collections || [];
+  // const collections = data?.collections || [];
 
   // navigate to personal profile page if username is the logged-in user's
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -64,14 +64,19 @@ const Profile = () => {
         </Grid>
       </Box>
 
-      <div>
-        <div>
-          <CollectionList
-            collections={user.collections}
-            title={`${userParam}'s collections...`}
-          />
-        </div>
-      </div>
+      <Box>
+        <Grid container>
+          <Grid item>
+            <CollectionList
+              collections={user.collections}
+              title={`${userParam}'s collections...`}
+            />
+          </Grid>
+
+          <Grid item>
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
   );
 };

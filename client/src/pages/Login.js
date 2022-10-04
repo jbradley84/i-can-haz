@@ -132,6 +132,7 @@ const Login = (props) => {
               required
               fullWidth
               id="email"
+              color="secondary"
               label="Email Address"
               name="email"
               type="email"
@@ -144,6 +145,7 @@ const Login = (props) => {
               margin="normal"
               required
               fullWidth
+              color="secondary"
               name="password"
               label="Password"
               type="password"
