@@ -27,9 +27,9 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  console.log(userParam)
-  console.log(collections)
-  console.log(data)
+  // console.log(userParam);
+  // console.log(collections);
+  // console.log(data);
 
   return (
     <Container>
