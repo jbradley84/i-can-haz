@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import Upload from "../Upload";
 import { useMutation } from "@apollo/client";
 import { ADD_ITEM } from "../../utils/mutations";
 
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
 import Container from "@mui/system/Container";
 import Grid from "@mui/material/Grid";
 
 const ItemForm = () => {
+
+  
+
+
   const [imageUrl, setImageUrl] = useState("");
   const [formState, setFormState] = useState({
+    collectionId: "",
     itemName: "",
     itemImage: "",
     itemDescription: "",
@@ -35,7 +37,6 @@ const ItemForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      // Execute addUser mutation and pass in variable data from form
       const { data } = await addItem({
         variables: { ...formState },
       });
@@ -72,11 +73,11 @@ const ItemForm = () => {
   //CLOUDINARY UPLOAD END
 
   return (
-    <Container sx={{ height: "80vh", alignItems: "center" }}>
+    <Container maxWidth="sm" sx={{ height: "80vh", alignItems: "center" }}>
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        <Box component="form" noValidate sx={{ mt: 1, mb: 2 }}>
+        <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1, mb: 2 }}>
           <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item>
               <TextField
@@ -111,7 +112,7 @@ const ItemForm = () => {
               {formState.itemImage !== "" ? (
                 <img
                   width="200"
-                  heingt="200"
+                  height="200"
                   src={formState.itemImage}
                   alt="preview"
                 />
@@ -137,6 +138,22 @@ const ItemForm = () => {
               >
                 Upload Image
               </Button>
+              <Button
+                fullWidth
+                type="submit"
+                variant="contained"
+                sx={{
+                  mt: 1,
+                  mb: 2,
+                  ":hover": {
+                    bgcolor: "secondary.main",
+                    color: "white",
+                  },
+                }}
+              >
+                Add New Item
+              </Button>
+
             </Grid>
           </Grid>
         </Box>
