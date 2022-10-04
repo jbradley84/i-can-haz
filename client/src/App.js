@@ -117,7 +117,6 @@ function App() {
                 <Route path="*" element={<NoMatch />} />
               </Routes>
             </div>
-            <ItemForm></ItemForm>
             <Footer />
           </div>
         </Router>
