@@ -55,6 +55,7 @@ const Login = (props) => {
       {/* LEFT HALF WITH ANIMATION */}
       <Grid
         item
+        align="center"
         className="area"
         xs={false}
         sm={4}
@@ -68,10 +69,11 @@ const Login = (props) => {
       >
         <Typography
           variant="h3"
+          
           sx={{
             color: "white",
             fontFamily: "Pacifico",
-            width: "75%",
+            width: "75%"
           }}
         >
           You can have it all with
