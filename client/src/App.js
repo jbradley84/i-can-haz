@@ -52,6 +52,7 @@ let theme = createTheme({
       light: "#de4e6b",
       dark: "#951731",
       lighter: "#F5ABBA",
+      transparent: "rgba(222, 77, 109, 0.303)"
     },
     secondary: {
       main: "#4e54c8",
@@ -115,6 +116,7 @@ function App() {
                   <Route path="" element={<Profile />} />
                 </Route>
                 <Route path="/CollectionForm" element={<CollectionForm />} />
+
                 <Route path="*" element={<NoMatch />} />
               </Routes>
             </div>

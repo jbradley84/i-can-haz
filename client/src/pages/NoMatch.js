@@ -2,7 +2,7 @@ import React from 'react';
 
 const NoMatch = () => {
   return (
-    <div className="noMatch">
+    <div className="no-match">
       Oops, we couldn't find that page.
     </div>
   );

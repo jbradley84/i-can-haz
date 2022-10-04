@@ -1,10 +1,19 @@
 import React from "react";
 import CollectionList from "../components/CollectionList";
+import Auth from "../utils/auth";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-import Auth from "../utils/auth";
-import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
+
+import {
+  Avatar,
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+} from "@mui/material";
+import Paper from "@mui/material/Paper";
 
 const Profile = () => {
   // const { loading, data } = useQuery(QUERY_COLLECTIONS);
@@ -33,15 +42,22 @@ const Profile = () => {
 
   return (
     <Container>
-      <Box>
-        <Grid container>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Grid
+          wrap
+          container
+          component={Paper}
+          elevation={3}
+          maxWidth="sm"
+          // className="profile-title"
+          sx={{ borderRadius: 5, p: 2, mt: 3, mb: 2, mx: 2 }}
+        >
           <Grid item>
             <Avatar
-              className="avatar"
               sx={{
                 mr: 4,
-                width: { xs: 50, sm: 70, md: 100, lg: 120 },
-                height: { xs: 50, sm: 70, md: 100, lg: 120 },
+                width: { xs: 60, sm: 70, md: 100, lg: 120 },
+                height: { xs: 60, sm: 70, md: 100, lg: 120 },
                 bgcolor: "secondary.main",
               }}
             ></Avatar>
@@ -55,7 +71,7 @@ const Profile = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h4" sx={{}}>
+            <Typography variant="h4">
               {userParam
                 ? `${userParam}'s Profile`
                 : `Welcome back, ${user.username}!`}
@@ -65,15 +81,33 @@ const Profile = () => {
       </Box>
 
       <Box>
-        <Grid container>
+        <Typography
+          variant="h4"
+          marginTop={4}
+          sx={{
+            fontWeight: 300,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          {userParam ? `${userParam}'s Collections` : `Your Collections`}
+        </Typography>
+
+        <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+          <Grid item>
+            <Divider
+              justify="center"
+              sx={{ mb: 2, width: { xs: 300, sm: 500, md: 700 } }}
+            />
+          </Grid>
+        </Grid>
+
+        <Grid container sx={{ display: "flex", justifyContent: "center" }}>
           <Grid item>
             <CollectionList
               collections={user.collections}
               title={`${userParam}'s collections...`}
             />
-          </Grid>
-
-          <Grid item>
           </Grid>
         </Grid>
       </Box>
