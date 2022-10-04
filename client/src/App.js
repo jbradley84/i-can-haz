@@ -17,13 +17,14 @@ import {
 } from "@mui/material/styles";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ItemForm from './components/ItemForm';
+// import ItemForm from './components/ItemForm';
+import CollectionForm from "./components/CollectionForm";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 // import SingleCollection from "./pages/SingleCollection";
-// import SingleItem from "./pages/SingleItem";
+import AccountSettings from "./pages/AccountSettings";
 import NoMatch from "./pages/NoMatch";
 
 // IMPORT ROBOTO FONT VARIATIONS
@@ -51,6 +52,7 @@ let theme = createTheme({
       light: "#de4e6b",
       dark: "#951731",
       lighter: "#F5ABBA",
+      transparent: "rgba(222, 77, 109, 0.303)"
     },
     secondary: {
       main: "#4e54c8",
@@ -113,7 +115,9 @@ function App() {
                   <Route path=":username" element={<Profile />} />
                   <Route path="" element={<Profile />} />
                 </Route>
-
+                <Route path="/CollectionForm" element={<CollectionForm />} />
+                <Route path="/AccountSettings" element={<AccountSettings />} />
+                
                 <Route path="*" element={<NoMatch />} />
               </Routes>
             </div>
