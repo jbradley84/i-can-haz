@@ -59,7 +59,7 @@ const ResponsiveAppBar = () => {
             <Typography
               variant="h4"
               noWrap
-              component="a"
+              component="div"
               sx={{
                 mr: 5,
                 display: { xs: "none", md: "flex" },
@@ -145,7 +145,7 @@ const ResponsiveAppBar = () => {
               <Typography
                 variant="h4"
                 noWrap
-                component="a"
+                component="div"
                 sx={{
                   mr: 2,
                   padding: 0.5,

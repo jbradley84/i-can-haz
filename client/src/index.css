@@ -47,7 +47,13 @@ body {
   font-weight: 700;
 }
 
-
+.prof-warning {
+  display: flex;
+  align-items: center;
+  height: 75vh;
+  padding: 0px 20px;
+  justify-content: center;
+}
 
 /* START FLOATING SQUARES ANIMATION */
 /* CREDIT/SOURCE: https://codepen.io/tokyoweb/pen/ZjdYVj */

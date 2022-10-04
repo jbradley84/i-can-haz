@@ -7,20 +7,21 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
+// IMPORT COMPONENTS
 import {
   createTheme,
   ThemeProvider,
   responsiveFontSizes,
 } from "@mui/material/styles";
-
-// IMPORT COMPONENTS
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ItemForm from './components/ItemForm';
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-// import Profile from "./pages/Profile";
+import Profile from "./pages/Profile";
 // import SingleCollection from "./pages/SingleCollection";
 // import SingleItem from "./pages/SingleItem";
 import NoMatch from "./pages/NoMatch";
@@ -86,7 +87,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -101,17 +102,17 @@ function App() {
     <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
         <Router>
-          <div className="App">
+          <div>
             <Header />
             <div className="page-container">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
-                {/* <Route path="/profile">
-                           <Route path=":username" element={<Profile />} />
-                           <Route path="" element={<Profile />} />
-                        </Route> */}
+                <Route path="/profile">
+                  <Route path=":username" element={<Profile />} />
+                  <Route path="" element={<Profile />} />
+                </Route>
 
                 <Route path="*" element={<NoMatch />} />
               </Routes>
