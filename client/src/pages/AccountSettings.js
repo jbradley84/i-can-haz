@@ -11,12 +11,10 @@ import {
   Container,
   Divider,
   Grid,
-  TextField
-} from '@mui/material';
-
+  TextField,
+} from "@mui/material";
 
 const AccountSettings = (props) => {
-  
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -37,18 +35,19 @@ const AccountSettings = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
     try {
       const { data } = await updateUser({
-        variables: { ...formState }
+        variables: { ...formState },
       });
-    
     } catch (e) {
       console.error(e);
     }
   };
 
   return (
-    <Container sx={{ display: "flex", justifyContent: "center", my: 12 }}
+    <Container
+      sx={{ display: "flex", justifyContent: "center", my: 12 }}
       autoComplete="off"
       noValidate
       {...props}
@@ -61,14 +60,18 @@ const AccountSettings = (props) => {
         />
         <Divider />
         <CardContent>
-          <Grid sx={{ display: "flex", justifyContent: "center" }}
+          <Grid
+            sx={{ display: "flex", justifyContent: "center" }}
             container
             spacing={3}
           >
-          <Grid
-              item
-              md={12}
-              xs={12}
+            <Box
+              // item
+              // md={12}
+              // xs={12}
+              component="form"
+              noValidate
+              onSubmit={handleFormSubmit}
             >
               <Grid container spacing={2}>
                 <Grid item xs={12}>
@@ -112,29 +115,34 @@ const AccountSettings = (props) => {
                   />
                 </Grid>
               </Grid>
-            </Grid>
+              
+              <Divider />
+
+
+              <Grid
+                item
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  p: 2,
+                }}
+              >
+                <Button
+                  color="primary"
+                  variant="contained"
+                  type="submit"
+                  sx={{ my: 1 }}
+                >
+                  Save details
+                </Button>
+              </Grid>
+            </Box>
           </Grid>
         </CardContent>
-        <Divider />
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            p: 2
-          }}
-        >
-          <Button
-            color="primary"
-            variant="contained"
-            sx={{ my: 1 }}
-          >
-            Save details
-          </Button>
-        </Box>
+        
       </Card>
     </Container>
   );
 };
-
 
 export default AccountSettings;

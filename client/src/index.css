@@ -57,15 +57,10 @@ body {
   justify-content: center;
 }
 
-/* .profile-title {
-  background-color: white;
-  box-shadow: 
-    /* -5px -5px 10px rgba(225, 225, 225, .8),  */
-    /* 5px 5px 10px rgba(95, 95, 95, 0.125), */
-    /* inset -5px -5px 10px rgba(211, 128, 146, 0.303),
-    inset 5px 5px 10px  rgba(211, 128, 146, 0.179);
-  backdrop-filter: blur(90%); 
-} */
+.profile-title {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 
 /* START FLOATING SQUARES ANIMATION */
