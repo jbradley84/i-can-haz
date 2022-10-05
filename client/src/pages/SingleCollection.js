@@ -11,6 +11,7 @@ import { Box, Container, Grid, Button, Typography } from "@mui/material";
 
 const SingleCollection = () => {
   const { _id: idParam } = useParams();
+  const [deleteCollection, { error }] = useMutation(DELETE_COLLECTION);
   const { loading, data } = useQuery(SINGLE_COLLECTION, {
     variables: { _id: idParam },
   });
@@ -22,7 +23,6 @@ const SingleCollection = () => {
     return <div>Loading...</div>;
   }
 
-  const [deleteCollection, { error }] = useMutation(DELETE_COLLECTION);
 
   const handleDeleteCollection = async (collectionID) => {
     console.log(collectionID);
