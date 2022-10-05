@@ -47,7 +47,7 @@ const Profile = () => {
     <Container>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Grid
-          wrap
+          // wrap
           container
           component={Paper}
           elevation={3}
@@ -74,7 +74,7 @@ const Profile = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h4">
+            <Typography  variant="h4">
               {userParam
                 ? `${userParam}'s Profile`
                 : `Welcome back, ${user.username}!`}

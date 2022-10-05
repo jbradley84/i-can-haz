@@ -32,6 +32,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import SingleCollection from "./pages/SingleCollection";
 
 // CUSTOM MATERIAL UI THEME
 /*  HOW TO USE: 
@@ -119,6 +120,10 @@ function App() {
                 <Route path="/AccountSettings" element={<AccountSettings />} />
                 
                 <Route path="*" element={<NoMatch />} />
+                <Route path="/collection">
+                  <Route path=":_id" element={<SingleCollection />} />
+                  <Route path="" element={<SingleCollection />} />
+                </Route>
               </Routes>
             </div>
             <Footer />
