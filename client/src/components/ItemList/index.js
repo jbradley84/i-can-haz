@@ -6,15 +6,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-
-// import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
-
 const ItemList = ({ items }) => {
   if (!items.length) {
     return <h3 className="no-item">No Items Yet</h3>;
   }
-  
-
+  console.log(items);
   return (
     <div className="contain">
       {items &&
@@ -35,7 +31,7 @@ const ItemList = ({ items }) => {
                 component="img"
                 height="175"
                 // GET URLS FROM CLOUDINARY
-                image="placeholder.jpeg"
+                image={item.itemImage}
                 alt="lizard"
               />
               <CardContent sx={{ textAlign: "left", padding: 3 }}>
@@ -43,7 +39,7 @@ const ItemList = ({ items }) => {
                   {item.itemName}
                 </Typography>
                 <div className="card-body">
-                <Typography sx={{ mb: 1, fontSize: 20, fontWeight: "Bold" }}>
+                <Typography sx={{ mb: 1, fontSize: 15, fontWeight: "Normal" }}>
                   {item.itemDescription}
                 </Typography>
                 </div>
