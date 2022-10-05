@@ -49,6 +49,7 @@ body {
 
 .no-match,
 .no-collection,
+.no-item,
 .prof-warning {
   display: flex;
   align-items: center;

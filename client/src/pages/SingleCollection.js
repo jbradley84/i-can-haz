@@ -6,7 +6,7 @@ import ItemList from "../components/ItemList";
 import ItemForm from "../components/ItemForm";
 
 import { SINGLE_COLLECTION  } from "../utils/queries";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 const SingleCollection = () => {
   const { _id: idParam } = useParams();
@@ -22,17 +22,17 @@ const SingleCollection = () => {
   }
 
   return (
-    <Container>
+    <Container maxWidth="md">
       <Box>
-        <Grid container>
+        <Grid container sx={{ ml: 2, mt: 4, mb: 2 }}>
           <Grid item>
-            <h2>
+            <Typography variant="h2">
               {collection.collectionName}
-            </h2>
-            <p>Created By {collection.username}</p>
-            <p>
+            </Typography>
+            <Typography variant="h6">Created By {collection.username}</Typography>
+            <Typography>
               {collection.collectionDescription}
-            </p>
+            </Typography>
           </Grid>
         </Grid>
       </Box>
