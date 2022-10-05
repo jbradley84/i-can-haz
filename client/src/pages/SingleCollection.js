@@ -1,17 +1,15 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+
 import ItemList from "../components/ItemList";
 import ItemForm from "../components/ItemForm";
-import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+
 import { SINGLE_COLLECTION  } from "../utils/queries";
-import Auth from "../utils/auth";
-import { Avatar, Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 
-const SingleCollection = ({createdby}) => {
-  // const { loading, data } = useQuery(QUERY_COLLECTIONS);
-
+const SingleCollection = () => {
   const { _id: idParam } = useParams();
-  
   const { loading, data } = useQuery(SINGLE_COLLECTION, {
     variables: { _id: idParam}
   });
@@ -19,19 +17,9 @@ const SingleCollection = ({createdby}) => {
   const items = data?.collection.items || [];
   console.log(items);
 
-
-  // navigate to personal profile page if username is the logged-in user's
-  // if (Auth.loggedIn() && Auth.getProfile().data.username === idParam) {
-  //   return <Navigate to="/collection" />;
-  // }
-
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  // console.log(userParam)
-  // console.log(user.collections)
-  // console.log(data.me)
 
   return (
     <Container>
@@ -56,7 +44,8 @@ const SingleCollection = ({createdby}) => {
           </Grid>
         </Grid>  
       </Box>
-      <ItemForm ></ItemForm>
+      <ItemForm collectionID={collection._id}></ItemForm>
+      
     </Container>
   );
 };
