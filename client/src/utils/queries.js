@@ -32,6 +32,28 @@ export const QUERY_COLLECTIONS = gql`
   }
 `;
 
+// QUERY INDIVIDUAL COLLECTION BY ID
+export const SINGLE_COLLECTION = gql`
+  query collection(_id: $_id) {
+   _id
+   collectionName
+   collectionDescription
+   itemCount
+   items {
+      _id
+      itemName
+      itemImage
+      itemDescription
+   }
+   commentCount
+   comments{
+      username
+      commentBody
+      createdAt
+   }
+  }
+`;
+
 // QUERY ME
 export const QUERY_ME = gql`
   query me {
