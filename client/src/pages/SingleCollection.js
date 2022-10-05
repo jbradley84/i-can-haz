@@ -1,8 +1,9 @@
 import React from "react";
 import ItemList from "../components/ItemList";
+import ItemForm from "../components/ItemForm";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_COLLECTIONS, QUERY_USER, SINGLE_COLLECTION  } from "../utils/queries";
+import { SINGLE_COLLECTION  } from "../utils/queries";
 import Auth from "../utils/auth";
 import { Avatar, Box, Container, Grid } from "@mui/material";
 
@@ -55,6 +56,7 @@ const SingleCollection = ({createdby}) => {
           </Grid>
         </Grid>  
       </Box>
+      <ItemForm ></ItemForm>
     </Container>
   );
 };
