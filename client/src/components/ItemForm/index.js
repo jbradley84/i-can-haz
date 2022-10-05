@@ -1,34 +1,23 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { ADD_ITEM } from "../../utils/mutations";
-import { QUERY_COLLECTIONS, QUERY_ME } from "../../utils/queries";
 
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Container from "@mui/system/Container";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
-const ItemForm = () => {
+const ItemForm = ({collectionID}) => {
 
-  const {loading, data} = useQuery(QUERY_COLLECTIONS);
-  const queryTest = (e) => {
-    e.preventDefault();
-    //test grabbing collections
-    const collections = data?.collections || [];
-    console.log(collections);
-    console.log(collections[0]._id);
-    //end test
-  }
-
-  const [imageUrl, setImageUrl] = useState("");
   const [formState, setFormState] = useState({
-    collectionId: "",
+    collectionId: collectionID,
     itemName: "",
     itemImage: "",
     itemDescription: "",
   });
-
+console.log();
   const [addItem, { error }] = useMutation(ADD_ITEM);
 
   // Update state based on form input changes
@@ -39,8 +28,8 @@ const ItemForm = () => {
       ...formState,
       [name]: value,
     });
-    console.log(formState);
   };
+  console.log(formState);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -52,6 +41,13 @@ const ItemForm = () => {
     } catch (e) {
       console.error(e);
     }
+
+    setFormState({
+    collectionId: collectionID,
+    itemName: "",
+    itemImage: "",
+    itemDescription: ""
+    })
   };
 
   //CLOUDINARY UPLOAD START
@@ -71,7 +67,6 @@ const ItemForm = () => {
         if (!error && result && result.event === "success") {
           console.log("Done! Here is the image info: ", result.info.url);
           //sets the state image url by targeting the result.info property, but result.info has other useful info that can be captured as well.
-          setImageUrl(result.info.url);
           setFormState({ ...formState, itemImage: result.info.url });
         }
       }
@@ -85,7 +80,11 @@ const ItemForm = () => {
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        <Box component="form" onSubmit={queryTest} noValidate sx={{ mt: 1, mb: 2 }}>
+        <Box 
+        component="form"
+        onSubmit={handleFormSubmit}
+        noValidate
+        sx={{ mt: 1, mb: 2 }}>
           <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item>
               <TextField
@@ -131,6 +130,13 @@ const ItemForm = () => {
                 />
               )}
             </Grid>
+
+            <Grid container justifyContent="flex-start" sx={{ mt: 2 }}>
+            <Grid item>
+              {error && <Typography color="error">Failed to add item</Typography>}
+            </Grid>
+          </Grid>
+
             <Grid item>
               <Button
                 sx={{
