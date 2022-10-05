@@ -9,7 +9,6 @@ import { CardActionArea } from "@mui/material";
 // import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 const CollectionList = ({ collections }) => {
-  console.log(collections)
   if (!collections) {
     return <h3 className="no-collection">No Collections Yet</h3>;
   }
@@ -30,7 +29,6 @@ const CollectionList = ({ collections }) => {
             }}
           >
             <CardActionArea>
-            
                 <CardMedia
                   component="img"
                   height="175"
