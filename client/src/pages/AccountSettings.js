@@ -13,7 +13,6 @@ import {
   TextField,
 } from "@mui/material";
 
-
 const AccountSettings = (props) => {
   const [formState, setFormState] = useState({
     username: "",
@@ -59,9 +58,17 @@ const AccountSettings = (props) => {
           sx={{ my: 1 }}
         />
         <Divider />
-        <CardContent>
+        <CardContent
+          sx={{
+            pt: 10,
+            mx: 4,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}
+        >
           <Grid
-            sx={{ display: "flex", justifyContent: "center" }}
+            sx={{ display: "flex",  flexDirection: "column", justifyContent: "center" }}
             container
             spacing={3}
           >
@@ -72,9 +79,8 @@ const AccountSettings = (props) => {
               component="form"
               noValidate
               onSubmit={handleFormSubmit}
-              
             >
-              <Grid container spacing={2}>
+              <Grid container spacing={2} >
                 <Grid item xs={12}>
                   <TextField
                     required
@@ -86,6 +92,7 @@ const AccountSettings = (props) => {
                     id="email"
                     value={formState.email}
                     onChange={handleChange}
+                    sx={{ ml: 1.5 }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -99,11 +106,10 @@ const AccountSettings = (props) => {
                     id="password"
                     value={formState.password}
                     onChange={handleChange}
+                    sx={{ ml: 1.5, mb: 2 }}
                   />
                 </Grid>
               </Grid>
-              
-              <Divider />
 
 
               <Grid
@@ -111,7 +117,7 @@ const AccountSettings = (props) => {
                 sx={{
                   display: "flex",
                   justifyContent: "flex-end",
-                  p: 2,
+                  py: 2,
                 }}
               >
                 <Button
@@ -126,7 +132,6 @@ const AccountSettings = (props) => {
             </Box>
           </Grid>
         </CardContent>
-        
       </Card>
     </Container>
   );
