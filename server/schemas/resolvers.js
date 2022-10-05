@@ -129,17 +129,13 @@ const resolvers = {
       },
 
       // DELETE COLLECTION
-      deleteCollection: async (parent, { collectionId }, context) => {
-         if (context.user) {
+      deleteCollection: async (parent, { collectionId }) => {
             const updatedCollection = await Collection.findByIdAndDelete(
                { _id: collectionId },
                //{ new: true, runValidators: true }
             );
-
             return updatedCollection;
-         }
-
-         throw new AuthenticationError('You need to be logged in to do that!');
+         
       },
 
       // ADD ITEM TO COLLECTION
