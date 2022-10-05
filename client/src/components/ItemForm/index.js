@@ -6,18 +6,20 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Container from "@mui/system/Container";
+import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-const ItemForm = ({collectionID}) => {
-
+const ItemForm = ({ collectionID }) => {
   const [formState, setFormState] = useState({
     collectionId: collectionID,
     itemName: "",
     itemImage: "",
     itemDescription: "",
   });
-console.log();
+  console.log();
   const [addItem, { error }] = useMutation(ADD_ITEM);
 
   // Update state based on form input changes
@@ -43,11 +45,11 @@ console.log();
     }
 
     setFormState({
-    collectionId: collectionID,
-    itemName: "",
-    itemImage: "",
-    itemDescription: ""
-    })
+      collectionId: collectionID,
+      itemName: "",
+      itemImage: "",
+      itemDescription: "",
+    });
   };
 
   //CLOUDINARY UPLOAD START
@@ -76,17 +78,46 @@ console.log();
   //CLOUDINARY UPLOAD END
 
   return (
-    <Container maxWidth="sm" sx={{ height: "80vh", alignItems: "center" }}>
+    <Container
+      component={Paper}
+      elevation={6}
+      square
+      maxWidth="md"
+      sx={{ height: "80vh", display: "flex", alignItems: "center", mt: 8, pt: 6 }}
+    >
+      <CssBaseline />
       <Box
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        sx={{
+          mx: 4,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
-        <Box 
-        component="form"
-        onSubmit={handleFormSubmit}
-        noValidate
-        sx={{ mt: 1, mb: 2 }}>
-          <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item>
+        {/* ICON & TITLE */}
+        <AddCircleOutlineIcon
+          sx={{ mb: 2, fontSize: "50px", color: "secondary.main" }}
+        />
+        <Typography
+          component="p"
+          variant="h5"
+          align="center"
+          color="text.secondary"
+          paragraph
+          fontWeight="300"
+        >
+          Add a New Item
+        </Typography>
+
+        {/* FORM INPUT FIELDS */}
+        <Box
+          component="form"
+          onSubmit={handleFormSubmit}
+          noValidate
+          sx={{ mt: 3, mb: 2 }}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
@@ -115,13 +146,15 @@ console.log();
                 onChange={handleChange}
               ></TextField>
             </Grid>
-            <Grid item>
+          
+            <Grid item xs={6}  sx={{ display: "flex", alignItems: "center" }}>
               {formState.itemImage !== "" ? (
                 <img
                   width="200"
                   height="200"
                   src={formState.itemImage}
                   alt="preview"
+                  sx={{ ml: 3 }}
                 />
               ) : (
                 <img
@@ -131,13 +164,15 @@ console.log();
               )}
             </Grid>
 
-            <Grid container justifyContent="flex-start" sx={{ mt: 2 }}>
-            <Grid item>
-              {error && <Typography color="error">Failed to add item</Typography>}
-            </Grid>
-          </Grid>
+            {/* <Grid container justifyContent="flex-start" sx={{ mt: 2 }}>
+              <Grid item>
+                {error && (
+                  <Typography color="error">Failed to add item</Typography>
+                )}
+              </Grid>
+            </Grid> */}
 
-            <Grid item>
+            <Grid item xs={6} sx={{ mt: 10,  display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
               <Button
                 sx={{
                   mt: 1,
@@ -157,6 +192,7 @@ console.log();
                 type="submit"
                 variant="contained"
                 sx={{
+                  py: 2,
                   mt: 1,
                   mb: 2,
                   ":hover": {
@@ -167,7 +203,6 @@ console.log();
               >
                 Add New Item
               </Button>
-
             </Grid>
           </Grid>
         </Box>
