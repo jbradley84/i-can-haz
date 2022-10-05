@@ -109,6 +109,7 @@ const CollectionForm = () => {
                 id="collectionName"
                 value={formState.collectionName}
                 label="Collection Name"
+                helperText="required"
                 onChange={handleChange}
               ></TextField>
             </Grid>
@@ -125,6 +126,7 @@ const CollectionForm = () => {
                 id="collectionDescription"
                 value={formState.collectionDescription}
                 label="Description"
+                helperText="required"
                 onChange={handleChange}
               />
             </Grid>

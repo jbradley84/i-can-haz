@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -23,7 +22,7 @@ const ItemList = ({ items }) => {
               my: 2,
               mx: 2,
               maxWidth: { xs: 360, sm: 300, md: 360, lg: 360 },
-              bgcolor: "primary.main",
+              bgcolor: "secondary.main",
               color: "white",
               borderRadius: 1,
             }}

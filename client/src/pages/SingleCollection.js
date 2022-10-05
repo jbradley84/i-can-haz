@@ -8,6 +8,8 @@ import ItemForm from "../components/ItemForm";
 
 import { SINGLE_COLLECTION } from "../utils/queries";
 import { Box, Container, Grid, Button, Typography } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const SingleCollection = () => {
   const { _id: idParam } = useParams();
@@ -74,7 +76,7 @@ const SingleCollection = () => {
             handleDeleteCollection(collection._id);
           }}
           sx={{
-            mt: 1,
+            mt: 4,
             mb: 2,
             ":hover": {
               bgcolor: "secondary.main",
@@ -83,6 +85,7 @@ const SingleCollection = () => {
           }}
         >
           Delete Collection
+          <DeleteIcon sx={{ ml: 1, fontSize: 20 }} />
         </Button>
       </Box>
     </Container>

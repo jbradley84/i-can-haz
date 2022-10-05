@@ -90,6 +90,7 @@ const AccountSettings = (props) => {
                     name="email"
                     type="email"
                     id="email"
+                    helperText="required"
                     value={formState.email}
                     onChange={handleChange}
                     sx={{ ml: 1.5 }}
@@ -104,6 +105,7 @@ const AccountSettings = (props) => {
                     name="password"
                     type="password"
                     id="password"
+                    helperText="required"
                     value={formState.password}
                     onChange={handleChange}
                     sx={{ ml: 1.5, mb: 2 }}
