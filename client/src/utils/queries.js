@@ -39,6 +39,7 @@ export const SINGLE_COLLECTION = gql`
       _id
       collectionName
       collectionDescription
+      username
       itemCount
       items {
         _id
