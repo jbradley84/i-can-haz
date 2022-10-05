@@ -65,7 +65,7 @@ const AccountSettings = (props) => {
             container
             spacing={3}
           >
-            <Grid
+          <Grid
               item
               md={12}
               xs={12}
