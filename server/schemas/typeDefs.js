@@ -35,6 +35,7 @@ const typeDefs = gql`
       email: String
       collections: [Collection]
       collectionCount: Int
+      password: String
    }
 
    type Query {

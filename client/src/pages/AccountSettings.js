@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_USER } from "../utils/mutations";
-
 import {
   Box,
   Button,
@@ -13,6 +12,7 @@ import {
   Grid,
   TextField,
 } from "@mui/material";
+
 
 const AccountSettings = (props) => {
   const [formState, setFormState] = useState({
@@ -72,6 +72,7 @@ const AccountSettings = (props) => {
               component="form"
               noValidate
               onSubmit={handleFormSubmit}
+              
             >
               <Grid container spacing={2}>
                 <Grid item xs={12}>

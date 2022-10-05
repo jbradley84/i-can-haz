@@ -31,15 +31,20 @@ const Login = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    try {
+    console.log("hiiiiiiiiiii")
+
+    // try {
+      console.log(formState)
       const { data } = await login({
         variables: { ...formState },
       });
 
+      console.log(data)
+
       Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
-    }
+    // } catch (e) {
+      // console.error(e);
+    // }
     
     // clear form values
     setFormState({

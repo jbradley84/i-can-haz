@@ -1,7 +1,7 @@
 const { User, Collection } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-
+const bcrypt = require('bcrypt');
 
 const resolvers = {
    Query: {
@@ -28,7 +28,7 @@ const resolvers = {
       // GET ALL USERS
       users: async () => {
          return User.find()
-            .select("-__v -password")
+            // .select("-__v -password")
             .populate("collections");
       },
 
@@ -58,6 +58,8 @@ const resolvers = {
       // UPDATE USER
       updateUser: async (parent, args, context) => {
          if (context.user) {
+            args.password = await bcrypt.hash(args.password, 10);
+
             return await User.findByIdAndUpdate(context.user._id, args, { new: true });
          }
 
