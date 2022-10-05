@@ -7,7 +7,7 @@ import ItemList from "../components/ItemList";
 import ItemForm from "../components/ItemForm";
 
 import { SINGLE_COLLECTION } from "../utils/queries";
-import { Box, Container, Grid, Button } from "@mui/material";
+import { Box, Container, Grid, Button, Typography } from "@mui/material";
 
 const SingleCollection = () => {
   const { _id: idParam } = useParams();
@@ -18,32 +18,22 @@ const SingleCollection = () => {
   const items = data?.collection.items || [];
   console.log(items);
 
-  const [deleteCollection, { error }] = useMutation(DELETE_COLLECTION);
-
-  const handleDeleteCollection = async (collectionID) => {
-    console.log(collectionID);
-    try {
-      const { data } = await deleteCollection({
-        variables: { collectionId: collectionID },
-      });
-    } catch (err) {
-      console.error(err);
-    }
-    return window.location.assign("/");
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <Container>
+    <Container maxWidth="md">
       <Box>
-        <Grid container>
+        <Grid container sx={{ ml: 2, mt: 4, mb: 2 }}>
           <Grid item>
-            <h2>{collection.collectionName}</h2>
-            <p>Created By {collection.username}</p>
-            <p>{collection.collectionDescription}</p>
+            <Typography variant="h2">
+              {collection.collectionName}
+            </Typography>
+            <Typography variant="h6">Created By {collection.username}</Typography>
+            <Typography>
+              {collection.collectionDescription}
+            </Typography>
           </Grid>
         </Grid>
       </Box>
