@@ -34,11 +34,12 @@ export const QUERY_COLLECTIONS = gql`
 
 // QUERY INDIVIDUAL COLLECTION BY ID
 export const SINGLE_COLLECTION = gql`
-  query collection($_id: $_id) {
+  query collection($_id: ID!) {
    collection(_id: $_id) {
       _id
       collectionName
       collectionDescription
+      username
       itemCount
       items {
          _id
