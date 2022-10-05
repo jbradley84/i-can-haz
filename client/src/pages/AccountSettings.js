@@ -79,20 +79,6 @@ const AccountSettings = (props) => {
                   <TextField
                     required
                     fullWidth
-                    autoFocus
-                    color="secondary"
-                    label="Username"
-                    name="username"
-                    type="username"
-                    id="username"
-                    value={formState.username}
-                    onChange={handleChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
                     color="secondary"
                     label="Email Address"
                     name="email"

@@ -9,7 +9,8 @@ import { CardActionArea } from "@mui/material";
 // import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 const CollectionList = ({ collections }) => {
-  if (!collections.length) {
+  console.log(collections)
+  if (!collections) {
     return <h3 className="no-collection">No Collections Yet</h3>;
   }
 
@@ -29,10 +30,7 @@ const CollectionList = ({ collections }) => {
             }}
           >
             <CardActionArea>
-              <Link
-                to={`/collection/${collection._id}`}
-                style={{ fontWeight: 500, color: "white" }}
-              >
+            
                 <CardMedia
                   component="img"
                   height="175"
@@ -41,9 +39,17 @@ const CollectionList = ({ collections }) => {
                   alt="lizard"
                 />
                 <CardContent sx={{ textAlign: "left", padding: 3 }}>
+                  {/* SINGLE COLLECTION */}
                   <Typography sx={{ mb: 1, fontSize: 20, fontWeight: "Bold" }}>
-                    {collection.collectionName}
+                    <Link
+                      to={`/collection/${collection._id}`}
+                      style={{ fontWeight: 500, color: "white" }}
+                    >
+                      {collection.collectionName}
+                    </Link>{" "}
                   </Typography>
+                  
+                  {/* USER PROFILE */}
                   <Typography>
                     Created by&nbsp;
                     <Link
@@ -54,6 +60,7 @@ const CollectionList = ({ collections }) => {
                       {collection.username}
                     </Link>{" "}
                   </Typography>
+
                   <div className="card-body">
                     <p>{collection.collectionText}</p>
                     <p className="mb-0">
@@ -63,7 +70,7 @@ const CollectionList = ({ collections }) => {
                     </p>
                   </div>
                 </CardContent>
-              </Link>
+             
             </CardActionArea>
           </Card>
         ))}
