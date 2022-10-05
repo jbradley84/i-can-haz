@@ -22,6 +22,24 @@ const SingleCollection = () => {
     return <div>Loading...</div>;
   }
 
+  const [deleteCollection, { error }] = useMutation(DELETE_COLLECTION);
+
+  const handleDeleteCollection = async (collectionID) => {
+    console.log(collectionID);
+    try {
+      const { data } = await deleteCollection({
+        variables: { collectionId: collectionID },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+    return window.location.assign("/");
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Container maxWidth="md">
       <Box>
