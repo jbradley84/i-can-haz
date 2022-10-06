@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import placeholder from "../../assets/placeholder.jpeg"
 
 // import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 
@@ -33,7 +34,7 @@ const CollectionList = ({ collections }) => {
                   component="img"
                   height="175"
                   // GET URLS FROM CLOUDINARY
-                  image="placeholder.jpeg"
+                  image={placeholder}
                   alt="lizard"
                 />
                 <CardContent sx={{ textAlign: "left", padding: 3 }}>
