@@ -19,7 +19,7 @@ A collection management/social media app designed to bring unique collectors tog
 <br/>
 
 <!-- !!! NEED IMG OR GIF -->
-<img src=""/>
+<img src="./client/src/assets/app-screenshot.png"/>
 
 <br/>
 
