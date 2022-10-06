@@ -47,6 +47,9 @@ body {
   font-weight: 700;
 }
 
+.no-match,
+.no-collection,
+.no-item,
 .prof-warning {
   display: flex;
   align-items: center;
@@ -54,6 +57,12 @@ body {
   padding: 0px 20px;
   justify-content: center;
 }
+
+.profile-title {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 /* START FLOATING SQUARES ANIMATION */
 /* CREDIT/SOURCE: https://codepen.io/tokyoweb/pen/ZjdYVj */

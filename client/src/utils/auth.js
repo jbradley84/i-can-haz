@@ -29,6 +29,7 @@ class AuthService {
   }
 
   login(idToken) {
+    console.log(idToken)
     localStorage.setItem('id_token', idToken);
     // Upon login bring user to homepage
     window.location.assign('/');

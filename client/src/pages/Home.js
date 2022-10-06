@@ -34,6 +34,7 @@ const Home = () => {
                   variant="h5"
                   align="center"
                   color="text.secondary"
+                  fontWeight="300"
                   paragraph
                 >
                   The best way to share your collections with the world.
@@ -46,13 +47,14 @@ const Home = () => {
                 >
                   <Button
                     variant="contained"
+                    color="secondary"
                     sx={{
                       ":hover": {
-                        bgcolor: "secondary.main",
+                        bgcolor: "primary.main",
                       },
                     }}
                   >
-                    <Link to="/collectionForm">
+                    <Link to="/CollectionForm">
                       <Typography sx={{ color: "white" }}>
                         Add A Collection
                       </Typography>
@@ -61,10 +63,11 @@ const Home = () => {
                   <Link to="/profile">
                     <Button
                       variant="outlined"
+                      color="secondary"
                       sx={{
                         ":hover": {
-                          color:  "secondary.main",
-                          borderColor: "secondary.main"
+                          color:  "primary.main",
+                          borderColor: "primary.main"
                         }
                       }}
                     >
@@ -84,5 +87,6 @@ const Home = () => {
     </main>
   );
 };
+
 
 export default Home;

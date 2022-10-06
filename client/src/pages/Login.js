@@ -31,15 +31,20 @@ const Login = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    try {
+    console.log("hiiiiiiiiiii")
+
+    // try {
+      console.log(formState)
       const { data } = await login({
         variables: { ...formState },
       });
 
+      console.log(data)
+
       Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
-    }
+    // } catch (e) {
+      // console.error(e);
+    // }
     
     // clear form values
     setFormState({
@@ -55,6 +60,7 @@ const Login = (props) => {
       {/* LEFT HALF WITH ANIMATION */}
       <Grid
         item
+        align="center"
         className="area"
         xs={false}
         sm={4}
@@ -68,10 +74,11 @@ const Login = (props) => {
       >
         <Typography
           variant="h3"
+          
           sx={{
             color: "white",
             fontFamily: "Pacifico",
-            width: "75%",
+            width: "75%"
           }}
         >
           You can have it all with
@@ -130,6 +137,7 @@ const Login = (props) => {
               required
               fullWidth
               id="email"
+              color="secondary"
               label="Email Address"
               name="email"
               type="email"
@@ -142,6 +150,7 @@ const Login = (props) => {
               margin="normal"
               required
               fullWidth
+              color="secondary"
               name="password"
               label="Password"
               type="password"

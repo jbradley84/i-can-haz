@@ -35,12 +35,13 @@ const typeDefs = gql`
       email: String
       collections: [Collection]
       collectionCount: Int
+      password: String
    }
 
    type Query {
       me: User
       users: [User]
-      user(username: String!): [User]
+      user(username: String!): User
       collections(username: String): [Collection]
       collection(_id: ID!): Collection
    }

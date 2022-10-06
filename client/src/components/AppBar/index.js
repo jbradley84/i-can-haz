@@ -1,6 +1,7 @@
 import * as React from "react";
 import Auth from "../../utils/auth";
 
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -127,7 +128,7 @@ const ResponsiveAppBar = () => {
                   </Button>
 
                   <Button>
-                    <Link to="/collectionForm">
+                    <Link to="/CollectionForm">
                       <Typography sx={{ color: "black" }}>
                         + Collection
                       </Typography>

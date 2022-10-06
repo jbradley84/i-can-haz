@@ -14,12 +14,12 @@ A collection management/social media app designed to bring unique collectors tog
 
 
 <!-- !!! ADD LINK TO DEPLOYED APPLICATION -->
-### [Click to View Application]()
+### [Click to View Application](https://i-can-hazz.herokuapp.com/)
 
 <br/>
 
 <!-- !!! NEED IMG OR GIF -->
-<img src=""/>
+<img src="./client/src/assets/app-screenshot.png"/>
 
 <br/>
 

@@ -17,12 +17,14 @@ import {
 } from "@mui/material/styles";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+// import ItemForm from './components/ItemForm';
+import CollectionForm from "./components/CollectionForm";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 // import SingleCollection from "./pages/SingleCollection";
-// import SingleItem from "./pages/SingleItem";
+import AccountSettings from "./pages/AccountSettings";
 import NoMatch from "./pages/NoMatch";
 
 // IMPORT ROBOTO FONT VARIATIONS
@@ -30,6 +32,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import SingleCollection from "./pages/SingleCollection";
 
 // CUSTOM MATERIAL UI THEME
 /*  HOW TO USE: 
@@ -50,6 +53,7 @@ let theme = createTheme({
       light: "#de4e6b",
       dark: "#951731",
       lighter: "#F5ABBA",
+      transparent: "rgba(222, 77, 109, 0.303)"
     },
     secondary: {
       main: "#4e54c8",
@@ -112,8 +116,14 @@ function App() {
                   <Route path=":username" element={<Profile />} />
                   <Route path="" element={<Profile />} />
                 </Route>
-
+                <Route path="/CollectionForm" element={<CollectionForm />} />
+                <Route path="/AccountSettings" element={<AccountSettings />} />
+                
                 <Route path="*" element={<NoMatch />} />
+                <Route path="/collection">
+                  <Route path=":_id" element={<SingleCollection />} />
+                  <Route path="" element={<SingleCollection />} />
+                </Route>
               </Routes>
             </div>
             <Footer />
