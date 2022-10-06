@@ -50,7 +50,6 @@ const CollectionList = ({ collections }) => {
                   
                   {/* USER PROFILE */}
                   <Typography>
-                    Created by&nbsp;
                     <Link
                       to={`/profile/${collection.username}`}
                       style={{ fontWeight: 700, color: "white" }}
