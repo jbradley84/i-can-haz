@@ -56,6 +56,7 @@ const CollectionForm = () => {
     } catch (e) {
       console.error(e);
     }
+    return window.location.assign(`/profile`);
   };
   
   return (
